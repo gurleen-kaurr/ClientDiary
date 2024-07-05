@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %} 
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Client Diary</title>
-</head>
-<body>
-    <form onsubmit="event.preventDefault();" role="search">
-        <label for="search">Search for stuff</label>
-        <input id="search" type="search" placeholder="Search..." autofocus required />
-        <button type="submit">Go</button>    
-      </form>
-</body>
-</html>
+{% extends "base.html"%}
+
+{% block start %}
+<div class="s01">
+    <form>
+    <div class="inner-form">
+    <div class="input-field first-wrap">
+    <input id="search" type="text" placeholder="What are you looking for?">
+    </div>
+    <div class="input-field second-wrap">
+    <input id="location" type="text" placeholder="location">
+    </div>
+    <div class="input-field third-wrap">
+    <button class="btn-search" type="button">Search</button>
+    </div>
+    </div>
+    </form>
+    </div>
+{% endblock %}
