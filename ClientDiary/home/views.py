@@ -33,4 +33,4 @@ def clients(request):
 
   else:
 
-    return render(request, 'clients.html', )
+    return render(request, 'clients.html',)
