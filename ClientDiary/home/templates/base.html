@@ -1,21 +1,20 @@
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %} 
-    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Client Diary</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    {% block start %}
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Client Diary</a>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="Add Client">Link 1</a>
+              <a class="nav-link" href="/clients">Add New Clients</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link 2</a>
@@ -25,7 +24,11 @@
             </li>
           </ul>
         </div>
-    </nav>
+      </nav>
+    
+      <script src="{% static 'script.js' %}"></script>
+    
+      {% block start %}  
 
     {% endblock %}
 </body>
