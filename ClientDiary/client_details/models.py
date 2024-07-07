@@ -7,3 +7,4 @@ class Client(models.Model):
     client_phno = models.IntegerField(max_length=10)
     client_service_date = models.DateField()
     client_paymentmode =  models.CharField(max_length=20, choices=[('cash', 'Cash'), ('card', 'Card')])
+    client_staff = models.CharField(max_length=100)
