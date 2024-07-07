@@ -6,5 +6,6 @@ class ClientAdmin(admin.ModelAdmin):
                    'client_area' ,  
                    'client_phno', 
                    'client_service_date',
-                   'client_paymentmode')
+                   'client_paymentmode',
+                   'client_staff')
 admin.site.register(Client,ClientAdmin)
