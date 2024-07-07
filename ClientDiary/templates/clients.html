@@ -4,7 +4,7 @@
 
 <div class="form-container">
 <h1 style="color: antiquewhite;">Client Registration Form</h1>
-    <form method="post" enctype="multipart/form-data" class="shadow-lg">  
+    <form method="post" action= {% url "Register" %}  enctype="multipart/form-data" class="shadow-lg">  
         {% csrf_token %}
         <div class="form-group">
             <label for="client_name" style="color: antiquewhite;">Client Name:</label>
