@@ -6,7 +6,7 @@ from client_details.models import Client
 def clients(request):
     return render(request,"clients.html")
 
-def register_client(request):
+def register_Client(request):
      
     if request.method == 'POST':
 
