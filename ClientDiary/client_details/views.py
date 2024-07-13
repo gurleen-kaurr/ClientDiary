@@ -33,8 +33,8 @@ def register_Client(request):
         )
         en.save()
 
-        # Consider rendering a success template or redirecting to a success page
-        return render(request, 'client_success.html', context)  # Adjust template name
+        context = {'message': 'Client registration successful!'} 
+        return render(request, 'success.html', context)  # Adjust template name
 
     else:
         # Handle GET requests (display empty form)
