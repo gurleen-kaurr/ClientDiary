@@ -21,6 +21,6 @@ from client_details import views
 urlpatterns = [
     path('', home, name='home'),
     path('clients/',views.clients, name='clients'),
-    path('register_Client/', views.register_Client, name='Register'),
+    path('success/', views.register_Client, name='Register'),
     path('admin/', admin.site.urls),
 ]
