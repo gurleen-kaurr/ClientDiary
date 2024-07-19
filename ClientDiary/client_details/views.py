@@ -39,3 +39,5 @@ def register_Client(request):
     else:
         # Handle GET requests (display empty form)
         return render(request, 'clients.html') 
+
+

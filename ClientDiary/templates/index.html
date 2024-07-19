@@ -3,11 +3,10 @@
 {% block start %}
 
     <div class="search-container">
-        <form action="/search/" method="get">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter Client Name">
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" placeholder="Enter Location">
+        <form action="/search/" method="post">
+            {% csrf_token %}
+            <label for="name">Search Client Details: </label>
+            <input type="text" id="name" name="search" placeholder="Enter Details">
             <button type="submit">Search</button>
         </form>
     </div>
