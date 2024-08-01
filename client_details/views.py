@@ -41,23 +41,9 @@ def register_Client(request):
         # Handle GET requests (display empty form)
         return render(request, 'clients.html') 
     
-    
-def search_feature(request):
-        if 'search' in request.GET:
-            search = request.GET['search']
-            posts = Client.objects.filter(Q(client_name__icontains=search) | 
-                                          Q(client_address__icontains=search) | 
-                                          Q(client_area__icontains=search)  | 
-                                          Q(client_phno__icontains=search)  |
-                                          Q(client_service_date__icontains=search)  |
-                                          Q(client_paymentmode__icontains=search)  |
-                                          Q(client_staff__icontains=search))
-            
-            context = {
-                 'Client' : Client
-            }
-            return render(request, 'searched_detail.html', context)
-        else:
-            return render(request, 'searched_detail.html',{})
+
+def search(request):
+    return HttpResponse('this is search')
+
 
 
