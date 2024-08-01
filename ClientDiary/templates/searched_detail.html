@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block start %}  
+{% if Client %}
+<div style="padding-top: 100px;" class="container">
+    <div style="color: aliceblue;" class="row">
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Area</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Date of Service</th>
+                <th scope="col">Payment Mode</th>
+                <th scope="col">Staff</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for Client in Client %}
+              <tr>
+                <td>{{ Client.client_name }}</td>
+                <td>{{ Client.client_address }}</td>
+                <td>{{ Client.client_area }}</td>
+                <td>{{ Client.client_phno }}</td>
+                <td>{{ Client.client_service_date }}</td>
+                <td>{{ Client.paymentmode }}</td>
+                <td>{{ Client.client_staff }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+    </div>
+</div>
+{% else %}
+        <p>No results found.</p>
+{% endif %}
+
+{% endblock %}

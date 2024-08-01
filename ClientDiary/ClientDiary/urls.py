@@ -22,5 +22,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('clients/',views.clients, name='clients'),
     path('success/', views.register_Client, name='Register'),
+    path('searched_detail', views.search_feature, name='search_feature'),
     path('admin/', admin.site.urls),
 ]
