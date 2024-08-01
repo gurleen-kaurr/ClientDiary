@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block start %}
+
+<div class="container">
+  <h2 padding-left: 20px;">Results</h2>
+</div>
+<div >
+    <table class= "table table-bordered text-center">
+      <thead>
+        <tr>
+          <th  scope="col">Name</th>
+          <th  scope="col">Address</th>
+          <th  scope="col">Area</th>
+          <th  scope="col">Phone Number</th>
+          <th  scope="col">Date of Service</th>
+          <!--<th style="color: aliceblue;" scope="col">Payment Mode</th>-->
+          <th  scope="col">Staff</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tbody>
+          {% for client in client %}
+          <tr>
+            <td>{{ client.client_name }}</td>
+            <td>{{ client.client_address }}</td>
+            <td>{{ client.client_area }}</td>
+            <td>{{ client.client_phno }}</td>
+            <td>{{ client.client_service_date }}</td>
+            <!--<td>{{ client.paymentMode }}</td>-->
+            <td>{{ client.client_staff }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
