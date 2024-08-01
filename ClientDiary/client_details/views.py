@@ -19,9 +19,6 @@ def register_Client(request):
         client_paymentmode = request.POST.get('client_paymentmode')
         client_staff = request.POST.get('client_staff')
 
-        # Implement form processing logic here (validation, database saving, etc.)
-        # ... (e.g., using Django's forms or custom validation)
-        # ... (consider saving data to a Django model)
 
         en =  Client(
             client_name = client_name,
@@ -43,7 +40,20 @@ def register_Client(request):
     
 
 def search(request):
-    return HttpResponse('this is search')
+   if 'query' in request.GET:
+        query = request.GET['query']
+        client = Client.objects.filter(Q(client_name__icontains=query) | 
+                                      Q(client_address__icontains=query) | 
+                                      Q(client_area__icontains=query) | 
+                                      Q(client_phno__icontains=query) |
+                                      Q(client_service_date__icontains=query) |
+                                      Q(client_paymentmode__icontains=query) |
+                                      Q(client_staff__icontains=query))
+   else:
+        client = Client.objects.all()
+   context = {'client' : client}
+   return render(request, 'searched_detail.html', context)
+    
 
 
 

@@ -133,3 +133,11 @@ textarea {
 .payment-options input[type="radio"] {
   margin-right: 10px;
 }
+
+.container2 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
