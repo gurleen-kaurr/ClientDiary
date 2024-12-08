@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+
+
+{% block start %}
+
+<div class="container">
+  <h2 style="color: aliceblue; padding-left: 20px;">Results</h2>
+</div>
+<div >
+    <table class= "table table-bordered text-center" style="border: 1px solid white; border-collapse: collapse; width: 100%; ">
+      <thead>
+        <tr style="color: aliceblue; border-collapse: collapse; ">
+          <th style="border: 1px solid white;" scope="col">Name</th>
+          <th style="border: 1px solid white;" scope="col">Address</th>
+          <th style="border: 1px solid white;" scope="col">Area</th>
+          <th style="border: 1px solid white;" scope="col">Phone Number</th>
+          <th style="border: 1px solid white;" scope="col">Date of Service</th>
+          <!--<th style="color: aliceblue;" scope="col">Payment Mode</th>-->
+          <th style="border: 1px solid white;" scope="col">Staff</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tbody>
+          {% for client in client %}
+          <tr style="color: aliceblue; border-collapse: collapse; " >
+            <td style="border: 1px solid white;" >{{ client.client_name }}</td>
+            <td style="border: 1px solid white;" >{{ client.client_address }}</td>
+            <td style="border: 1px solid white;" >{{ client.client_area }}</td>
+            <td style="border: 1px solid white;" >{{ client.client_phno }}</td>
+            <td style="border: 1px solid white;" >{{ client.client_service_date }}</td>
+            <!--<td>{{ client.paymentMode }}</td>-->
+            <td style="border: 1px solid white;" >{{ client.client_staff }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
