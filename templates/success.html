@@ -2,9 +2,10 @@
 {% load static %}
 
 {% block start %}  
-
-    <h2 style="color: antiquewhite;">Registration Success!</h2>
-
+<div class="success-container">
+    <h5>Registration Success!</h5>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Main</a> <!-- Adjust the URL name as needed -->
+</div>
 {% endblock %}
 
 
