@@ -1,11 +1,16 @@
-from django.contrib import admin
-from client_details.models import Client
+from django.urls import path
+from django.shortcuts import render, redirect
+from ClientDiary.settings import mongo_db  # Import mongo_db directly
 
-class ClientAdmin(admin.ModelAdmin):
-     list_display=('client_address', 
-                   'client_area' ,  
-                   'client_phno', 
-                   'client_service_date',
-                   'client_paymentmode',
-                   'client_staff')
-admin.site.register(Client,ClientAdmin)
+def list_clients(request):
+    clients = mongo_db.clients.find()
+    return render(request, 'admin/list_clients.html', {'clients': clients})
+
+def delete_client(request, client_id):
+    mongo_db.clients.delete_one({'_id': client_id})
+    return redirect('admin_list_clients')
+
+urlpatterns = [
+    path('admin/clients/', list_clients, name='admin_list_clients'),
+    path('admin/clients/delete/<client_id>/', delete_client, name='admin_delete_client'),
+]
