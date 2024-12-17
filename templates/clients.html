@@ -2,88 +2,49 @@
 
 {% block start %}
 
-<div class="form-container">
-<h1 style="color: antiquewhite;">Client Registration Form</h1>
-    <form method="post" action= {% url "Register" %}  enctype="multipart/form-data" class="shadow-lg">  
+<div class="container mt-5">
+    <h1 class="text-center" style="color: black;">Client Registration</h1>
+    <form method="post" action="{% url 'Register' %}" enctype="multipart/form-data" class="shadow-lg p-4">
         {% csrf_token %}
         <div class="form-group">
-            <label for="client_name" style="color: antiquewhite;">Client Name:</label>
-            <input type="text" id="client_name" name="client_name" required>
+            <label for="client_name" style="color: black;">Client Name:</label>
+            <input type="text" id="client_name" name="client_name" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="address" style="color: antiquewhite;" >Address:</label>
-            <textarea id="client_address" name="client_address" rows="4" required></textarea>
+            <label for="client_address" style="color: black;">Address:</label>
+            <textarea id="client_address" name="client_address" rows="4" class="form-control" required></textarea>
         </div>
         <div class="form-group">
-            <label for="area" style="color: antiquewhite;" >Area:</label>
-            <input type="text" id="client_area" name="client_area" required>
+            <label for="client_area" style="color: black;">Area:</label>
+            <input type="text" id="client_area" name="client_area" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="phone_number" style="color: antiquewhite;" >Phone Number:</label>
-            <input type="tel" id="client_phno" name="client_phno" required>  </div>
-        <div class="form-group">
-            <label for="date">Date Of Service:</label>
-            <input type="date" id="client_service_date" name="client_service_date" required>
+            <label for="client_phno" style="color: black;">Phone Number:</label>
+            <input type="tel" id="client_phno" name="client_phno" class="form-control" pattern="\d{10}" maxlength="10" required>
+            <small class="form-text text-muted">Please enter a 10-digit phone number.</small>
         </div>
         <div class="form-group">
-            <label for="area" style="color: antiquewhite;" >Staff Name:</label>
-            <input type="text" id="client_staff" name="client_staff" required>
+            <label for="client_service_date" style="color: black;">Date Of Service:</label>
+            <input type="date" id="client_service_date" name="client_service_date" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="payment_mode" style="color: antiquewhite;" >Payment Mode:</label>
-            <div class="payment-options">
-                <input type="radio" id="cash" name="client_paymentmode" value="cash" checked>
-                <label for="cash">Cash</label>
-                <input type="radio" id="online" name="client_paymentmode" value="online">
-                <label for="online">Online</label>
+            <label for="client_staff" style="color: black;">Staff Name:</label>
+            <input type="text" id="client_staff" name="client_staff" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label style="color: black;">Payment Mode:</label>
+            <div class="form-check">
+                <input type="radio" id="cash" name="client_paymentmode" value="cash" class="form-check-input" checked>
+                <label for="cash" class="form-check-label" style="color: black;">Cash</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="online" name="client_paymentmode" value="online" class="form-check-input">
+                <label for="online" class="form-check-label" style="color: black;">Online</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Add Client</button>
+        <button type="submit" class="clients_button btn btn-success btn-block">Add Client</button>
     </form>
 </div>
-
-<!--<div class="container">
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Client Name</label>
-        <input type="text" class="form-control" >
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Area</label>
-        <input type="text" class="form-control" > 
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-        <input type="tel" id="typePhone" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label for="date" class="col-1 col-form-label">Date</label>
-        <div class="col-5">
-          <div class="input-group date" id="datepicker">
-            <input type="text" class="form-control" id="date"/>
-            <span class="input-group-append">
-              <span class="input-group-text bg-light d-block">
-                <i class="fa fa-calendar"></i>
-              </span>
-            </span>
-          </div>
-        </div>
-    </div>
-    <div class="mb-3">
-        <div class="form-check">
-            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Cash
-            <label class="form-check-label" for="radio1"></label>
-          </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Online
-            <label class="form-check-label" for="radio2"></label>
-          </div> 
-    </div>
-    
-</div>-->
 
 
 {% endblock %}
